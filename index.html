@@ -1,0 +1,47 @@
+/* index.html*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register & Login</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Login Section (Visible on load) -->
+    <div id="login-section" class="form-box">
+      <h2>Login</h2>
+      <input type="text" id="login-identifier" placeholder="Username or Email" required>
+      <input type="password" id="login-password" placeholder="Password" required>
+      <button onclick="loginUser()">Login</button>
+      <button onclick="showRegister()">Register</button>
+    </div>
+
+    <!-- Registration Section (Hidden on load) -->
+    <div id="register-section" style="display: none;">
+      <div id="register-box" class="form-box">
+        <h2>Register</h2>
+        <select id="register-role">
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+        <input type="text" id="register-username" placeholder="Username" required>
+        <input type="email" id="register-email" placeholder="Email" required>
+        <input type="password" id="register-password" placeholder="Password" required>
+        <button onclick="registerUser()">Register</button>
+        <button onclick="backToLogin()">Back to Login</button>
+      </div>
+      <div id="otp-box" class="form-box" style="display: none;">
+        <h2>Verify OTP</h2>
+        <input type="text" id="otp-input" placeholder="Enter OTP" required>
+        <button onclick="verifyOTP()">Verify</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
