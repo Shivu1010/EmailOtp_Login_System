@@ -25,15 +25,18 @@ db.connect(err => {
     console.log("MySQL connected");
 });
 
+ 
+  
+
 // In-memory OTP store
 let otpStore = {};
 
-// Nodemailer transporter
+// Nodemailer transporteryouanusha1997
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
         user: "shivaamminabhavi10@gmail.com", // your email
-        pass: "8431785586"       // your app password
+        pass: "twjb bxbc aifl ofvw",       // your app password
     }
 });
 
@@ -138,19 +141,6 @@ app.post("/delete-user", (req, res) => {
  * 6. Update LED (Home Automation)
  * Forwards LED on/off and intensity commands to ESP32.
  */
-app.post("/updateLED", async (req, res) => {
-    const { led, state, intensity } = req.body;
-    try {
-        // Turn LED on/off
-        await axios.get(`http://${ESP32_IP}/${led}/${state === 1 ? "on" : "off"}`);
-         // Set intensity (0-255)
-       await axios.get(`http://${ESP32_IP}/${led}/intensity?value=${intensity}`);
-        res.send("OK");
-   } catch (err) {
-        console.error("ESP32 Communication Error:", err);
-      res.status(500).send("ESP32 error");
-    }
-});
 
 // Start server
 app.listen(3000, () => console.log("Server running on port 3000"));
